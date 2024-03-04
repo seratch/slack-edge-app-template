@@ -1,19 +1,19 @@
 ## slack-edge app template (Socket Mode)
 
-This is a template for a Slack app project, which demonstrates how to manage your app using [Slack CLI](https://api.slack.com/automation/cli/install) for local development.
+This is a Slack app project template demonstrating how to manage your [slack-edge](https://github.com/seratch/slack-edge) app using [Slack CLI](https://api.slack.com/automation/cli/install) for local development.
 
 The notable qualities of this app template include:
 
-* Smooth integration with Slack CLI for rapid local app development
-* No need to serve a public URL to receive Slack events, thanks to Socket Mode
-* Auto-reloading for both TypeScript code and App Manifest
-* Steamlined robust type-safety in TypeScript programming
+* Smooth integration with [Slack CLI](https://api.slack.com/automation/cli/install) for rapid local app development
+* No need to serve a public URL to receive Slack events, thanks to [Socket Mode](https://api.slack.com/apis/connections/socket)
+* Auto-reloading for both TypeScript code and App Manifest (see: [1](https://github.com/seratch/slack-edge-app-template/blob/main/package.json))
+* Steamlined robust type-safety in TypeScript programming (see: [1](https://github.com/seratch/slack-edge), [2](https://github.com/seratch/slack-web-api-client))
 
 ## Getting Started
 
 ### Install CLI and grant permissions
 
-If you haven't yet installed Slack CLI, I recommend visiting [this page](https://api.slack.com/automation/cli/install) to do so, and allowing it to install apps into your paid or sandbox Slack workspaces. To complete this, you will need to run `slack login` command on your terminal, plus execute `/slackauthticket` with the given parameter in your Slack workspace.
+If you haven't yet installed Slack CLI, I recommend visiting [the guide page](https://api.slack.com/automation/cli/install) to do so, and allowing it to install apps into your paid or sandbox Slack workspaces. To complete this, you will need to run `slack login` command on your terminal, plus execute `/slackauthticket` with the given parameter in your Slack workspace.
 
 Please remember that either a sandbox or paid workpace is required to use the CLI.
 
@@ -22,8 +22,8 @@ Please remember that either a sandbox or paid workpace is required to use the CL
 Once your CLI obtains the permission to install a local dev app, there is nothing else to prepare before running this template app. Clone this repo and install all the required npm packages:
 
 ```bash
-git clone git@github.com:seratch/slack-edge-template.git
-cd slack-edge-template/
+git clone git@github.com:seratch/slack-edge-app-template.git
+cd slack-edge-app-template/
 npm i
 ```
 
@@ -54,13 +54,13 @@ docker run \
 
 This example app contains the following feature sets:
 
-* An "app_mention" event listener (GA; app_mentions:read scope, $.settings.event_subscriptions.bot_events)
-* A "message" event listener (GA; channels:history, groups:history scopes, $.settings.event_subscriptions.bot_events)
-* A "reaction_added" event listener (GA; reactions:read scope, $.settings.event_subscriptions.bot_events)
-* A `/run-test-app` slash command (GA; commands scope, $.shortcuts.slash_commands)
-* A global shortcut (GA; commands scope, $.shortcuts.shortcuts)
-* A message shortcut (GA; commands scope, $.shortcuts.shortcuts)
-* Modal interactions (GA; commands scope, $.settings.interactivity)
-* A custom step within Workflow Builder (Still in beta; $.functions in manifest)
+* An ["app_mention" event](https://api.slack.com/events/app_mention) listener (GA; app_mentions:read scope, $.settings.event_subscriptions.bot_events)
+* A ["message" event](https://api.slack.com/events/message) listener (GA; channels:history, groups:history scopes, $.settings.event_subscriptions.bot_events)
+* A ["reaction_added" event](https://api.slack.com/events/reaction_added) listener (GA; reactions:read scope, $.settings.event_subscriptions.bot_events)
+* A `/run-test-app` [slash command](https://api.slack.com/interactivity/slash-commands) (GA; commands scope, $.shortcuts.slash_commands)
+* A global [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope, $.shortcuts.shortcuts)
+* A message [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope, $.shortcuts.shortcuts)
+* [Modal](https://api.slack.com/surfaces/modals) interactions (GA; commands scope, $.settings.interactivity)
+* A [custom step](https://api.slack.com/automation/functions/custom-bolt) within Workflow Builder (Still in beta; $.functions in manifest)
 
 If certain functionalities are deemed unnecessary, you can safely delete the corresponding code lines and remove the scopes used for them.
