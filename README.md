@@ -29,6 +29,12 @@ npm i
 
 Now you can execute `slack run` to activate your first Slack app connected to a workspace via the CLI. The CLI automaticaly creates a new local dev app, which synchronizes the `manifest.json` data behind the scenes and establishes a Socket Mode connection (WebSocket protocol) with the authorized Slack workspace.
 
+```bash
+unset SLACK_APP_TOKEN
+unset SLACK_BOT_TOKEN
+slack run
+```
+
 If you see `[INFO]  socket-mode:SocketModeClient:0 Now connected to Slack` in the console output, the local dev app is successfully connected to your Slack workspace :tada:
 
 Unlike before, you don't need to set any environment variables such as `SLACK_BOT_TOKEN`. The CLI passes the required variables to your app instance. If you have some env variables in the terminal session, you might need to unset them (e.g., `unset SLACK_BOT_TOKEN`) to prevent potential misbehavior.
