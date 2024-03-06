@@ -13,7 +13,7 @@ The notable qualities of this app template include:
 
 ### Install CLI and grant permissions
 
-If you haven't yet installed Slack CLI, I recommend visiting [the guide page](https://api.slack.com/automation/cli/install) to do so, and allowing it to install apps into your paid or sandbox Slack workspaces. To complete this, you will need to run `slack login` command on your terminal, plus execute `/slackauthticket` with the given parameter in your Slack workspace.
+If you haven't yet installed Slack CLI, I recommend visiting [the guide page](https://api.slack.com/automation/cli/install) to do so, and allowing it to install apps into your sandbox or paid Slack workspaces. To complete this, you will need to run `slack login` command on your terminal, plus execute `/slackauthticket` with the given parameter in your Slack workspace.
 
 Please remember that either a sandbox or paid workpace is required to use the CLI.
 
@@ -58,15 +58,15 @@ docker run \
 
 ## Features in the app
 
-This example app contains the following feature sets:
+This example app contains the following feature sets (release status; required scopes; the settings in manifest.json):
 
-* An ["app_mention" event](https://api.slack.com/events/app_mention) listener (GA; app_mentions:read scope, $.settings.event_subscriptions.bot_events)
-* A ["message" event](https://api.slack.com/events/message) listener (GA; channels:history, groups:history scopes, $.settings.event_subscriptions.bot_events)
-* A ["reaction_added" event](https://api.slack.com/events/reaction_added) listener (GA; reactions:read scope, $.settings.event_subscriptions.bot_events)
-* A `/run-test-app` [slash command](https://api.slack.com/interactivity/slash-commands) (GA; commands scope, $.shortcuts.slash_commands)
+* An ["app_mention" event](https://api.slack.com/events/app_mention) listener (GA; app_mentions:read scope; settings.event_subscriptions)
+* A ["message" event](https://api.slack.com/events/message) listener (GA; channels:history, groups:history scopes; settings.event_subscriptions)
+* A ["reaction_added" event](https://api.slack.com/events/reaction_added) listener (GA; reactions:read scope; settings.event_subscriptions)
+* A `/run-test-app` [slash command](https://api.slack.com/interactivity/slash-commands) (GA; commands scope; features.slash_commands)
 * A global [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope, $.shortcuts.shortcuts)
-* A message [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope, $.shortcuts.shortcuts)
-* [Modal](https://api.slack.com/surfaces/modals) interactions (GA; commands scope, $.settings.interactivity)
-* A [custom step](https://api.slack.com/automation/functions/custom-bolt) within Workflow Builder (Still in beta; $.functions in manifest)
+* A message [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope; features.shortcuts)
+* [Modal](https://api.slack.com/surfaces/modals) interactions (GA; commands scope; settings.interactivity)
+* A [custom step](https://api.slack.com/automation/functions/custom-bolt) within Workflow Builder (Still in beta; no scope reqiured; functions & outgoing_domains)
 
-If certain functionalities are deemed unnecessary, you can safely delete the corresponding code lines and remove the scopes used for them.
+If certain functionalities are deemed unnecessary, you can safely delete the corresponding code lines in `src/app.ts` and required scopes and settings in `manifest.json`.
