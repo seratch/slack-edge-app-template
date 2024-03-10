@@ -60,13 +60,13 @@ docker run \
 
 This example app contains the following feature sets (release status; required scopes; the settings in manifest.json):
 
-* An ["app_mention" event](https://api.slack.com/events/app_mention) listener (GA; app_mentions:read scope; settings.event_subscriptions)
-* A ["message" event](https://api.slack.com/events/message) listener (GA; channels:history, groups:history scopes; settings.event_subscriptions)
-* A ["reaction_added" event](https://api.slack.com/events/reaction_added) listener (GA; reactions:read scope; settings.event_subscriptions)
-* A `/run-test-app` [slash command](https://api.slack.com/interactivity/slash-commands) (GA; commands scope; features.slash_commands)
-* A global [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope, $.shortcuts.shortcuts)
-* A message [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; commands scope; features.shortcuts)
-* [Modal](https://api.slack.com/surfaces/modals) interactions (GA; commands scope; settings.interactivity)
-* A [custom step](https://api.slack.com/automation/functions/custom-bolt) within Workflow Builder (Still in beta; no scope reqiured; functions & outgoing_domains)
+* An ["app_mention" event](https://api.slack.com/events/app_mention) listener (GA; [app_mentions:read](https://api.slack.com/scopes/app_mentions:read) scope; [settings.event_subscriptions](https://api.slack.com/reference/manifests#settings))
+* A ["message" event](https://api.slack.com/events/message) listener (GA; [channels:history](https://api.slack.com/scopes/channels:history), [groups:history](https://api.slack.com/scopes/groups:history) scopes; [settings.event_subscriptions](https://api.slack.com/reference/manifests#settings))
+* A ["reaction_added" event](https://api.slack.com/events/reaction_added) listener (GA; [reactions:read](https://api.slack.com/scopes/reactions:read) scope; [settings.event_subscriptions](https://api.slack.com/reference/manifests#settings))
+* A `/run-test-app` [slash command](https://api.slack.com/interactivity/slash-commands) (GA; [commands](https://api.slack.com/scopes/commands) scope; [features.slash_commands](https://api.slack.com/reference/manifests#features))
+* A global [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; [commands](https://api.slack.com/scopes/commands) scope, [features.shortcuts](https://api.slack.com/reference/manifests#features))
+* A message [shortcut](https://api.slack.com/interactivity/shortcuts) (GA; [commands](https://api.slack.com/scopes/commands) scope; [features.shortcuts](https://api.slack.com/reference/manifests#features))
+* [Modal](https://api.slack.com/surfaces/modals) interactions (GA; [commands](https://api.slack.com/scopes/commands) scope; [settings.interactivity](https://api.slack.com/reference/manifests#features))
+* A [custom step](https://api.slack.com/automation/functions/custom-bolt) within Workflow Builder (Still in beta; no scope reqiured; [functions](https://api.slack.com/reference/manifests#functions))
 
 If certain functionalities are deemed unnecessary, you can safely delete the corresponding code lines in `src/app.ts` and required scopes and settings in `manifest.json`.
