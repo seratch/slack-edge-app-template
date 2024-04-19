@@ -22,8 +22,8 @@ Please remember that either a sandbox or paid workpace is required to use the CL
 Once your CLI obtains the permission to install a local dev app, there is nothing else to prepare before running this template app. Clone this repo and install all the required npm packages:
 
 ```bash
-git clone git@github.com:seratch/slack-edge-app-template.git
-cd slack-edge-app-template/
+git clone git@github.com:seratch/slack-edge-app-template.git my-slack-app
+cd my-slack-app/
 npm i
 ```
 
