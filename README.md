@@ -15,7 +15,7 @@ The notable qualities of this app template include:
 
 If you haven't yet installed Slack CLI, I recommend visiting [the guide page](https://api.slack.com/automation/cli/install) to do so, and allowing it to install apps into your sandbox or paid Slack workspaces. To complete this, you will need to run `slack login` command on your terminal, plus execute `/slackauthticket` with the given parameter in your Slack workspace.
 
-Please remember that either a sandbox or paid workpace is required to use the CLI.
+Please remember that either a sandbox or paid workpace is required to use the CLI. To learn more about the "sandbox", read [this article](https://dev.to/seratch/rapid-slack-app-development-using-slack-cli-and-sandboxes-2f6m) for details.
 
 ### Start your app on your local machine
 
