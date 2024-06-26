@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@slack/socket-mode": "^2.0.0",
-    "slack-edge": "^0.13.1"
+    "slack-edge": "^0.13.2"
   },
   "devDependencies": {
     "@slack/cli-hooks": "^1.1.0",
