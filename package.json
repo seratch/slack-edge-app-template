@@ -13,14 +13,14 @@
   "license": "MIT",
   "dependencies": {
     "@slack/socket-mode": "^2.0.0",
-    "slack-edge": "^0.12.0"
+    "slack-edge": "^0.13.1"
   },
   "devDependencies": {
     "@slack/cli-hooks": "^1.1.0",
-    "@types/node": "^20.12.7",
-    "nodemon": "^3.1.0",
-    "prettier": "^3.2.5",
+    "@types/node": "^20.14.9",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   }
 }
