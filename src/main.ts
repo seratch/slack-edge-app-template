@@ -8,7 +8,7 @@ import { app } from "./app";
 
 const sm = new SocketModeClient({
   appToken: process.env.SLACK_APP_TOKEN!,
-  logLevel: (process.env.SLACK_APP_LOG_LEVEL as LogLevel) || LogLevel.DEBUG,
+  logLevel: (process.env.SLACK_LOGGING_LEVEL as LogLevel) || LogLevel.DEBUG,
 });
 
 // No need to modify the following lines of code
