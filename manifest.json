@@ -58,13 +58,7 @@
       "is_enabled": true
     },
     "event_subscriptions": {
-      "bot_events": [
-        "app_home_opened",
-        "app_mention",
-        "message.channels",
-        "message.groups",
-        "reaction_added"
-      ]
+      "bot_events": ["app_home_opened", "app_mention", "message.channels", "message.groups", "reaction_added"]
     },
     "org_deploy_enabled": true,
     "socket_mode_enabled": true,

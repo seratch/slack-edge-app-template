@@ -1,9 +1,6 @@
 import { SocketModeClient } from "@slack/socket-mode";
 import { LogLevel } from "@slack/logger";
-import {
-  fromSocketModeToRequest,
-  fromResponseToSocketModePayload,
-} from "slack-edge";
+import { fromSocketModeToRequest as toRequest, fromResponseToSocketModePayload as toResponse } from "slack-edge";
 import { app } from "./app";
 
 const sm = new SocketModeClient({
@@ -12,14 +9,11 @@ const sm = new SocketModeClient({
 });
 
 // No need to modify the following lines of code
-sm.on(
-  "slack_event",
-  async ({ body, ack, retry_num: retryNum, retry_reason: retryReason }) => {
-    const request = fromSocketModeToRequest({ body, retryNum, retryReason });
-    if (!request) return;
-    const response = await app.run(request);
-    await ack(await fromResponseToSocketModePayload({ response }));
-  },
-);
+sm.on("slack_event", async ({ body, ack, retry_num: retryNum, retry_reason: retryReason }) => {
+  const request = toRequest({ body, retryNum, retryReason });
+  if (!request) return;
+  const response = await app.run(request);
+  await ack(await toResponse({ response }));
+});
 
 (async () => await sm.start())();

@@ -5,7 +5,7 @@
   "main": "lib/main.js",
   "scripts": {
     "start": "npm run build && node lib/main.js",
-    "format": "npx prettier -w src/ && npx prettier -w *.json",
+    "format": "npx @biomejs/biome format --write src/ *.json",
     "build": "tsc -p .",
     "local": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/main.ts"
   },
@@ -13,14 +13,14 @@
   "license": "MIT",
   "dependencies": {
     "@slack/socket-mode": "^2.0.0",
-    "slack-edge": "^0.13.3"
+    "slack-edge": "^1.0.0"
   },
   "devDependencies": {
-    "@slack/cli-hooks": "^1.1.0",
-    "@types/node": "^20.14.9",
+    "@biomejs/biome": "^1.8.3",
+    "@slack/cli-hooks": "^1.1.1",
+    "@types/node": "^22.0.0",
     "nodemon": "^3.1.4",
-    "prettier": "^3.3.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   }
 }

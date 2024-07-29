@@ -16,26 +16,23 @@ export const app = new SlackApp({
 // Events API
 // -------------------------------
 
-app.event(
-  "app_home_opened",
-  async ({ payload, context: { client, actorUserId } }) => {
-    // do anything async here
-    if (payload.tab === "home") {
-      await client.views.publish({
-        user_id: actorUserId!,
-        view: {
-          type: "home",
-          blocks: [
-            {
-              type: "section",
-              text: { type: "mrkdwn", text: `Hi <@${actorUserId}>!` },
-            },
-          ],
-        },
-      });
-    }
-  },
-);
+app.event("app_home_opened", async ({ payload, context: { client, actorUserId } }) => {
+  // do anything async here
+  if (payload.tab === "home") {
+    await client.views.publish({
+      user_id: actorUserId!,
+      view: {
+        type: "home",
+        blocks: [
+          {
+            type: "section",
+            text: { type: "mrkdwn", text: `Hi <@${actorUserId}>!` },
+          },
+        ],
+      },
+    });
+  }
+});
 
 app.event("app_mention", async ({ context: { say, actorUserId } }) => {
   // do anything async here
@@ -205,10 +202,7 @@ app.function(
       await client.functions.completeSuccess({
         function_execution_id: functionExecutionId!,
         outputs: {
-          full_name:
-            user.real_name ||
-            user.profile?.real_name_normalized ||
-            user.profile?.real_name,
+          full_name: user.real_name || user.profile?.real_name_normalized || user.profile?.real_name,
           icon_url:
             user.profile?.image_512 ||
             user.profile?.image_192 ||
