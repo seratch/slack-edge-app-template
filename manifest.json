@@ -1,6 +1,6 @@
 {
   "display_information": {
-    "name": "TestApp",
+    "name": "My Edge App",
     "description": "You can update this later",
     "background_color": "#4361ba",
     "long_description": ""
@@ -9,30 +9,30 @@
     "app_home": {
       "home_tab_enabled": true,
       "messages_tab_enabled": true,
-      "messages_tab_read_only_enabled": true
+      "messages_tab_read_only_enabled": false
     },
     "bot_user": {
-      "display_name": "TestApp Bot",
+      "display_name": "My Edge Bot",
       "always_online": true
     },
     "shortcuts": [
       {
-        "name": "Run TestApp",
+        "name": "Check this message",
         "type": "message",
         "callback_id": "message_example",
-        "description": "Run TestApp for this message"
+        "description": "Run My Edge App for this message"
       },
       {
-        "name": "Run TestApp Everywhere",
+        "name": "Run the app",
         "type": "global",
         "callback_id": "global_example",
-        "description": "Run TestApp from everywhere"
+        "description": "Run My Edge App from everywhere"
       }
     ],
     "slash_commands": [
       {
-        "command": "/run-test-app",
-        "description": "Run TestApp now",
+        "command": "/run-my-edge-app",
+        "description": "Run My Edge App Now",
         "usage_hint": "",
         "should_escape": true
       }
@@ -60,48 +60,7 @@
     "event_subscriptions": {
       "bot_events": ["app_home_opened", "app_mention", "message.channels", "message.groups", "reaction_added"]
     },
-    "org_deploy_enabled": true,
     "socket_mode_enabled": true,
     "token_rotation_enabled": false
-  },
-  "functions": {
-    "fetch_user_details": {
-      "title": "Fetch user details",
-      "description": "Returns details of the given user",
-      "input_parameters": {
-        "user_id": {
-          "type": "slack#/types/user_id",
-          "title": "User",
-          "name": "user_id",
-          "is_required": true,
-          "description": "The user to check",
-          "hint": "Select a user in the workspace"
-        }
-      },
-      "output_parameters": {
-        "full_name": {
-          "type": "string",
-          "name": "full_name",
-          "is_required": true,
-          "title": "Full name",
-          "description": "Full name"
-        },
-        "icon_url": {
-          "type": "string",
-          "name": "icon_url",
-          "is_required": false,
-          "title": "Icon image URL",
-          "description": "Icon image URL"
-        },
-        "tz_offset": {
-          "type": "number",
-          "name": "tz_offset",
-          "is_required": true,
-          "title": "Timezone offset",
-          "description": "Timezone offset"
-        }
-      }
-    }
-  },
-  "outgoing_domains": []
+  }
 }

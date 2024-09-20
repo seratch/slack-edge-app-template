@@ -1,4 +1,4 @@
-import { SlackApp } from "slack-edge";
+import { Assistant, SlackApp } from "slack-edge";
 
 type LogLevel = "DEBUG" | "INFO" | "WARN" | "ERROR";
 const logLevel = (process.env.SLACK_APP_LOG_LEVEL || "DEBUG") as LogLevel;
@@ -11,6 +11,25 @@ export const app = new SlackApp({
     SLACK_LOGGING_LEVEL: logLevel,
   },
 });
+
+// -------------------------------
+// Agents & Assistants
+// -------------------------------
+
+app.assistant(
+  new Assistant({
+    threadStarted: async ({ context: { say, setSuggestedPrompts } }) => {
+      await say({ text: "Hi, how can I help you today?" });
+      await setSuggestedPrompts({
+        prompts: ["What does SLACK stand for?"],
+      });
+    },
+    userMessage: async ({ context: { setStatus, say } }) => {
+      await setStatus({ status: "is typing..." });
+      await say({ text: "Here you are!" });
+    },
+  }),
+);
 
 // -------------------------------
 // Events API
