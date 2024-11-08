@@ -207,10 +207,11 @@ app.view(
 
 // -------------------------------
 // Custom Functions
+// https://api.slack.com/automation/functions/custom
 // -------------------------------
 
 app.function(
-  "fetch_user_details", // See the "functions" part in manifest.json
+  "fetch_user_details",
   async ({ payload, context: { client, functionExecutionId } }) => {
     try {
       // Requires users:read scope
